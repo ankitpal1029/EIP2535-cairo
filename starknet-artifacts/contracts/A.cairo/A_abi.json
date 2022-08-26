@@ -1,0 +1,13 @@
+[
+    {
+        "inputs": [],
+        "name": "getter",
+        "outputs": [
+            {
+                "name": "counter_val",
+                "type": "felt"
+            }
+        ],
+        "type": "function"
+    }
+]
