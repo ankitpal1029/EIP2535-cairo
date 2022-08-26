@@ -20,7 +20,7 @@ func selector_address_registry(selector: felt) -> (facet_address: felt):
 end
 
 @storage_var
-func selector_mapping_length() -> (res : felt):
+func selector_address_registry_length() -> (res : felt):
 end
 
 
@@ -106,6 +106,8 @@ func add_facet_selector{
     end
 
     selector_address_registry.write(selector, facet_address)
+    let (selector_len) = selector_address_registry_length.read()
+    selector_address_registry_length.write(selector_len + 1)
     return()
 end
 
