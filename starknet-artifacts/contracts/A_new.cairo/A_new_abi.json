@@ -1,6 +1,12 @@
 [
     {
         "inputs": [],
+        "name": "extra",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "getter",
         "outputs": [
             {

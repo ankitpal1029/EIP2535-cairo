@@ -41,10 +41,6 @@
             {
                 "name": "owner",
                 "type": "felt"
-            },
-            {
-                "name": "facet_registry_address",
-                "type": "felt"
             }
         ],
         "name": "constructor",

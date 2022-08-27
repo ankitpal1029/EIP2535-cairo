@@ -26,8 +26,7 @@ end
 
 
 @constructor
-func constructor{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(owner: felt, facet_registry_address: felt):
-    alloc_locals
+func constructor{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(owner: felt):
     Ownable.initializer(owner)
     return()
 end
