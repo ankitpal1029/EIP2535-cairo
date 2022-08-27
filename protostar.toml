@@ -5,6 +5,18 @@ protostar_version = "0.3.2"
 libs_path = "lib"
 
 ["protostar.contracts"]
-main = [
-    "src/main.cairo",
+# main = [
+#     "src/main.cairo",
+# ]
+proxy = [
+    "src/Proxy.cairo",
+]
+A = [
+    "src/A.cairo"
+]
+B = [
+    "src/B.cairo"
+]
+A_new = [
+    "src/A_new.cairo"
 ]

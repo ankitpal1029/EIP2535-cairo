@@ -4,8 +4,8 @@
 
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
-from contracts.storages.A_storage import counter
-from contracts.storages.B_storage import admin
+from src.storages.A_storage import counter
+from src.storages.B_storage import admin
 from starkware.starknet.common.syscalls import get_caller_address
 
 @external

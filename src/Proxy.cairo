@@ -8,8 +8,8 @@ from starkware.starknet.common.syscalls import library_call
 from starkware.starknet.common.syscalls import get_caller_address
 from starkware.cairo.common.math import assert_not_zero
 
-from contracts.libraries.ownable import Ownable
-from contracts.interfaces.ifacet_registry import (
+from src.libraries.ownable import Ownable
+from src.interfaces.ifacet_registry import (
     FacetAction, 
     FACET_FUNCTION_ADD, 
     FACET_FUNCTION_REPLACE, 
