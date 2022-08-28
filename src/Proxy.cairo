@@ -15,6 +15,7 @@ from src.interfaces.ifacet_registry import (
     FACET_FUNCTION_REPLACE, 
     FACET_FUNCTION_REMOVE
 )
+from src.storages.B_storage import admin, adminB
 
 @storage_var
 func selector_address_registry(selector: felt) -> (facet_address: felt):
@@ -28,6 +29,8 @@ end
 @constructor
 func constructor{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(owner: felt):
     Ownable.initializer(owner)
+    admin.write(owner)
+    adminB.write(owner)
     return()
 end
 
