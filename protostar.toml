@@ -7,6 +7,12 @@ libs_path = "lib"
 ["profile.devnet.protostar.deploy"]
 gateway-url="http://127.0.0.1:5050/"
 
+["protostar.build"]
+cairo-path = ['./lib/cairo_contracts/src']
+
+["protostar.shared_command_configs"]
+cairo-path = ["./lib/cairo_contracts/src"]
+
 ["protostar.contracts"]
 # main = [
 #     "src/main.cairo",
@@ -23,3 +29,4 @@ B = [
 A_new = [
     "src/A_new.cairo"
 ]
+
