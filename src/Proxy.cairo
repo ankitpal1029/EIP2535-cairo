@@ -73,7 +73,7 @@ func manage_facet_actions{syscall_ptr : felt*,
 
 
     if facet_action.action == FACET_FUNCTION_REPLACE:
-        replace_facet_selector(selector=facet_action.selector, facet_address=facet_action.facet_address)
+        replace_and_add_facet_selector(selector=facet_action.selector, facet_address=facet_action.facet_address)
         tempvar syscall_ptr : felt* = syscall_ptr
         tempvar pedersen_ptr: HashBuiltin* = pedersen_ptr 
         tempvar range_check_ptr = range_check_ptr
@@ -129,7 +129,7 @@ func remove_facet_selector{
     
 end
 
-func replace_facet_selector{
+func replace_and_add_facet_selector{
         syscall_ptr : felt*, 
         pedersen_ptr : HashBuiltin*, 
         range_check_ptr
@@ -139,9 +139,9 @@ func replace_facet_selector{
     ):
     let (existing_facet_address) = selector_address_registry.read(selector)
 
-    with_attr error_message("selector doesn't exist"):
-        assert_not_zero(existing_facet_address)
-    end
+    # with_attr error_message("selector doesn't exist"):
+    #     assert_not_zero(existing_facet_address)
+    # end
 
     selector_address_registry.write(selector, facet_address)
     return()

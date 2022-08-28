@@ -20,6 +20,20 @@ namespace IB:
     func renounceAdmin():
     end
 end
+
+@contract_interface
+namespace IProxy:
+    func constructor(owner: felt):
+    end
+    func manage_facet_actions(actions_len: felt, actions: FacetAction*):
+    end
+    func add_facet_selector(selector: felt, facet_address: felt):
+    end
+    func remove_facet_selector(selector: felt, facet_address: felt):
+    end
+    func replace_and_add_facet_selector(selector: felt, facet_address: felt):
+    end
+end
 @external
 func __setup__{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
 ):
@@ -143,7 +157,10 @@ func test_upgrade_persistance{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, 
     IA.setter(proxy_address, 10)
 
 
+
     # upgrading A with A_new
+    local actions_len: felt
+    local actions: FacetAction*
     %{ 
         from starkware.starknet.public.abi import get_selector_from_name
         import json
@@ -166,14 +183,23 @@ func test_upgrade_persistance{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, 
                         selectors_count += 1
         
         print("facets registered.")
-
-
     %}
-    
-
     %{ 
         stop_prank_callable()
     %}
+
+
+
+    %{ stop_prank_new_A = start_prank(context.new_admin_A_address, target_contract_address=context.proxy_address)%}
+
+    IA.setter(proxy_address, addVal=81)
+    let (res3) = IA.getter(proxy_address)
+    assert res3 = 91
+
+    %{ stop_prank_new_A()%}
+        
+
+
 
 
 
