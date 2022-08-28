@@ -4,6 +4,9 @@ protostar_version = "0.3.2"
 ["protostar.project"]
 libs_path = "lib"
 
+["profile.devnet.protostar.deploy"]
+gateway-url="http://127.0.0.1:5050/"
+
 ["protostar.contracts"]
 # main = [
 #     "src/main.cairo",
