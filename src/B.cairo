@@ -7,17 +7,17 @@ from starkware.cairo.common.cairo_builtins import HashBuiltin
 from src.storages.B_storage import admin, adminB
 from starkware.starknet.common.syscalls import get_caller_address
 
-@constructor
-func constructor{
-    syscall_ptr: felt*,
-    pedersen_ptr: HashBuiltin*,
-    range_check_ptr
-    }():
-    let (caller) = get_caller_address()
-    adminB.write(caller)
-    admin.write(caller)
-    return()
-end
+# @constructor
+# func constructor{
+#     syscall_ptr: felt*,
+#     pedersen_ptr: HashBuiltin*,
+#     range_check_ptr
+#     }():
+#     let (caller) = get_caller_address()
+#     adminB.write(caller)
+#     admin.write(caller)
+#     return()
+# end
 
 
 @external
